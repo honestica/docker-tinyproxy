@@ -145,6 +145,8 @@ stopService
 export rawRules="$@" && parsedRules=$(parseAccessRules $rawRules) && unset rawRules
 # Set ACL in Tinyproxy config
 setAccess $parsedRules
+# Set filters
+setFilter
 # Enable log to file
 enableLogFile
 # Start Tinyproxy
