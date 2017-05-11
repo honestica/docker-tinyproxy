@@ -9,7 +9,8 @@ FROM alpine:latest
 
 MAINTAINER Daniel Middleton <daniel-middleton.com>
 
-RUN apk update \
+RUN sed -i -e 's/dl-cdn/nl/' /etc/apk/repositories && \
+    apk update \
     && apk add \
 	bash \
 	tinyproxy
