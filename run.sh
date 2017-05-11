@@ -110,6 +110,14 @@ setAccess() {
     fi
 }
 
+setFilter() {
+    if [[ "$2" == *FILTER* ]]; then
+        sed -i -e"s/^#Filter /Filter /" $PROXY_CONF
+        checkStatus $? "Allowing Filter - Could not edit $PROXY_CONF" \
+                       "Allowed Filter - Edited $PROXY_CONF successfully."
+    fi
+}
+
 startService() {
     screenOut "Starting Tinyproxy service..."
     /usr/sbin/tinyproxy
